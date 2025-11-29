@@ -94,6 +94,9 @@
             padding: 6px 12px;
             border-radius: 20px;
             font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .nav-links a:hover,
@@ -174,8 +177,8 @@
         }
 
         .profile-img {
-            width: 160px;
-            height: 160px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid rgba(var(--primary-rgb), 0.4);
@@ -266,7 +269,7 @@
         }
 
         .resume-section {
-            margin-bottom: 25px;
+            margin-bottom: 40px;
         }
 
         .resume-section h2 {
@@ -279,8 +282,8 @@
         }
 
         .resume-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            display: flex;
+            flex-direction: column;
             gap: 18px;
         }
 
@@ -305,12 +308,14 @@
         }
 
         .resume-logo {
-            width: 45px;
-            height: 45px;
-            border-radius: 10px;
-            object-fit: cover;
-            margin-right: 12px;
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            object-fit: contain;
+            margin-right: 15px;
             border: 1px solid rgba(var(--primary-rgb), 0.4);
+            background-color: white;
+            padding: 5px;
         }
 
         .resume-card-info h3 {
@@ -322,6 +327,28 @@
         .resume-card-period {
             color: var(--text-light);
             font-size: 0.85rem;
+        }
+
+        .resume-card-content {
+            margin-top: 15px;
+        }
+
+        .company-name {
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .position-title {
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: rgb(var(--primary-rgb));
+        }
+
+        .job-description {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
 
         .grade-badge {
@@ -460,14 +487,16 @@
         }
 
         .timeline-logo {
-            width: 70px;
-            height: 70px;
+            width: 100px;
+            height: 100px;
             border-radius: 16px;
-            object-fit: cover;
+            object-fit: contain;
             margin-right: 25px;
             border: 2px solid rgba(var(--primary-rgb), 0.4);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             flex-shrink: 0;
+            background-color: white;
+            padding: 10px;
         }
 
         .timeline-info {
@@ -571,7 +600,7 @@
         .experience-img-container {
             position: relative;
             overflow: hidden;
-            height: 200px;
+            height: 220px;
         }
 
         .portfolio-img,
@@ -637,6 +666,23 @@
             display: flex;
             align-items: center;
             gap: 5px;
+        }
+
+        .gold-medal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+            z-index: 10;
+            font-weight: 600;
         }
 
         .portfolio-content,
@@ -1028,10 +1074,10 @@
         <div class="container nav-container">
             <div class="logo">พอร์ตโฟลิโอ</div>
             <ul class="nav-links">
-                <li><a href="#home" class="active">หน้าแรก</a></li>
-                <li><a href="#education">การศึกษา</a></li>
-                <li><a href="#portfolio">ผลงาน</a></li>
-                <li><a href="#experience">ประสบการณ์</a></li>
+                <li><a href="#home" class="active"><i class="fas fa-file-alt"></i> Resume</a></li>
+                <li><a href="#education"><i class="fas fa-graduation-cap"></i> การศึกษา</a></li>
+                <li><a href="#portfolio"><i class="fas fa-briefcase"></i> ผลงาน</a></li>
+                <li><a href="#experience"><i class="fas fa-briefcase"></i> ประสบการณ์</a></li>
             </ul>
         </div>
     </nav>
@@ -1055,6 +1101,10 @@
                             <div class="contact-item">
                                 <i class="fas fa-phone"></i>
                                 <span>0933628465</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-line"></i>
+                                <span>aoysirirat2545</span>
                             </div>
                             <!-- <div class="contact-item">
                                 <i class="fas fa-map-marker-alt"></i>
@@ -1089,7 +1139,7 @@
                             </div>
                         </div>
 
-                        <a href="files/resume.pdf" class="btn" download>
+                        <a href="/RESUME/resume-thai.pdf" class="btn" download>
                             <i class="fas fa-download"></i> ดาวน์โหลด Resume
                         </a>
                     </div>
@@ -1115,15 +1165,17 @@
                                             alt="Company Logo" class="resume-logo">
                                         <div class="resume-card-info">
                                             <h3>ฝึกงาน 2568</h3>
-                                            <div class="resume-card-period">16 มิ.ย. 68 - 17 ต.ค. 68 </div>
+                                            <div class="resume-card-period">16 มิ.ย. 68 - 17 ต.ค. 68</div>
                                         </div>
                                     </div>
-                                    <p>บริษัท โทรคมนาคมแห่งชาติ จำกัด (มหาชน) สาขากาญจนบุรี</p>
-                                    <br>
-                                    <p>เจ้าหน้าที่ฝ่ายขายและวิศวกรรมบริการ</p>
-                                    <br>
-                                    <p>จัดทำและบันทึกข้อมูลลูกค้า รายได้ต่อเดือน/ปี ด้วย Excel / word
-                                        ออกแบบ banner เช่น Cyber security , smart school</p>
+                                    <div class="resume-card-content">
+                                        <div class="company-name">บริษัท โทรคมนาคมแห่งชาติ จำกัด (มหาชน) สาขากาญจนบุรี</div>
+                                        <div class="position-title">เจ้าหน้าที่ฝ่ายขายและวิศวกรรมบริการ</div>
+                                        <div class="job-description">
+                                            จัดทำและบันทึกข้อมูลลูกค้า รายได้ต่อเดือน/ปี ด้วย Excel / word<br>
+                                            ออกแบบ banner เช่น Cyber security , smart school
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="resume-card">
@@ -1132,15 +1184,17 @@
                                             alt="Company Logo" class="resume-logo">
                                         <div class="resume-card-info">
                                             <h3>Part-time 2567</h3>
-                                            <div class="resume-card-period">พ.ย. 67 - มี.ค. 68 ( 1 เทอม)</div>
+                                            <div class="resume-card-period">พ.ย. 67 - มี.ค. 68 (1 เทอม)</div>
                                         </div>
                                     </div>
-                                    <p>คณะวิทยาการจัดการ มหาวิทยาลัยราชภัฏกาญจนบุรี</p>
-                                    <br>
-                                    <p>นักศึกษาทำงานช่วงปิดเทอม</p>
-                                    <br>
-                                    <p>รับ-ส่งเอกสารภายในมหาวิทยาลัย
-                                        จัดห้องประชุมเมื่อมีการประชุมต่างๆภายในตึกคณะ</p>
+                                    <div class="resume-card-content">
+                                        <div class="company-name">คณะวิทยาการจัดการ มหาวิทยาลัยราชภัฏกาญจนบุรี</div>
+                                        <div class="position-title">นักศึกษาทำงานช่วงปิดเทอม</div>
+                                        <div class="job-description">
+                                            รับ-ส่งเอกสารภายในมหาวิทยาลัย<br>
+                                            จัดห้องประชุมเมื่อมีการประชุมต่างๆภายในตึกคณะ
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="resume-card">
@@ -1152,12 +1206,14 @@
                                             <div class="resume-card-period">17 พ.ค 65 - 16 ก.ย.65</div>
                                         </div>
                                     </div>
-                                    <p>บริษัท จีเนียส-ทรี จำกัด</p>
-                                    <br>
-                                    <p>แผนกคอมพิวเตอร์</p>
-                                    <br>
-                                    <p>ใช้ Java พัฒนาโปรแกรมด้วย NetBeans, VS Code และ BlueJ
-                                        ติดตั้งและอัปเดต Apache NetBeans ผ่าน Command Line</p>
+                                    <div class="resume-card-content">
+                                        <div class="company-name">บริษัท จีเนียส-ทรี จำกัด</div>
+                                        <div class="position-title">แผนกคอมพิวเตอร์</div>
+                                        <div class="job-description">
+                                            ใช้ Java พัฒนาโปรแกรมด้วย NetBeans, VS Code และ BlueJ<br>
+                                            ติดตั้งและอัปเดต Apache NetBeans ผ่าน Command Line
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
@@ -1328,6 +1384,9 @@
                             <div class="portfolio-nav">
                                 <button class="nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
                                 <button class="nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                            <div class="gold-medal">
+                                <i class="fas fa-medal"></i> เหรียญทอง
                             </div>
                         </div>
                         <div class="portfolio-content">
