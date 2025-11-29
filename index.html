@@ -122,6 +122,75 @@
             width: 60%;
         }
 
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu-btn:hover {
+            color: var(--text);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 12, 41, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            padding: 20px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .mobile-nav-links li {
+            margin: 0;
+        }
+
+        .mobile-nav-links a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 25px;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+        }
+
+        .mobile-nav-links a:hover,
+        .mobile-nav-links a.active {
+            color: var(--text);
+            background: rgba(var(--primary-rgb), 0.1);
+            border-left-color: rgb(var(--primary-rgb));
+        }
+
+        .mobile-nav-links i {
+            width: 20px;
+            text-align: center;
+        }
+
         /* Sections */
         section {
             padding: 100px 0;
@@ -293,6 +362,7 @@
             padding: 18px;
             transition: all 0.3s;
             border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
         }
 
         .resume-card:hover {
@@ -382,6 +452,14 @@
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(var(--primary-rgb), 0.3);
+        }
+
+        /* Experience Divider */
+        .experience-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(var(--primary-rgb), 0.5), transparent);
+            margin: 30px 0;
+            width: 100%;
         }
 
         /* Education Timeline - ปรับปรุงให้มีระยะห่างซ้าย-ขวาเพิ่มขึ้น */
@@ -1010,6 +1088,10 @@
                 display: none;
             }
 
+            .mobile-menu-btn {
+                display: block;
+            }
+
             .hero h1 {
                 font-size: 2.2rem;
             }
@@ -1057,6 +1139,62 @@
                 margin-right: 0;
                 margin-bottom: 5px;
             }
+
+            .experience-content h3 {
+                font-size: 1.1rem;
+            }
+
+            .experience-content p {
+                font-size: 0.85rem;
+            }
+
+            /* Mobile Menu Styling */
+            .mobile-nav-links {
+                padding: 0 10px;
+            }
+
+            .mobile-nav-links a {
+                padding: 15px 20px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .profile-sidebar,
+            .resume-main {
+                padding: 20px;
+            }
+
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .profile-name {
+                font-size: 1.4rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .timeline-logo {
+                width: 80px;
+                height: 80px;
+            }
+
+            .timeline-info h3 {
+                font-size: 1.2rem;
+            }
+
+            .mobile-nav-links a {
+                padding: 12px 15px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -1079,8 +1217,23 @@
                 <li><a href="#portfolio"><i class="fas fa-briefcase"></i> ผลงาน</a></li>
                 <li><a href="#experience"><i class="fas fa-briefcase"></i> ประสบการณ์</a></li>
             </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="container">
+            <ul class="mobile-nav-links">
+                <li><a href="#home" class="active"><i class="fas fa-file-alt"></i> Resume</a></li>
+                <li><a href="#education"><i class="fas fa-graduation-cap"></i> การศึกษา</a></li>
+                <li><a href="#portfolio"><i class="fas fa-briefcase"></i> ผลงาน</a></li>
+                <li><a href="#experience"><i class="fas fa-briefcase"></i> ประสบการณ์</a></li>
+            </ul>
+        </div>
+    </div>
 
     <!-- Hero Section - Minimal Design -->
     <section id="home">
@@ -1178,6 +1331,8 @@
                                     </div>
                                 </div>
 
+                                <div class="experience-divider"></div>
+
                                 <div class="resume-card">
                                     <div class="resume-card-header">
                                         <img src="/IMG/logo-kru.png"
@@ -1196,6 +1351,8 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="experience-divider"></div>
 
                                 <div class="resume-card">
                                     <div class="resume-card-header">
@@ -1237,6 +1394,8 @@
                                     <div class="grade-badge">เกรดเฉลี่ย : 3.86</div>
                                 </div>
 
+                                <div class="experience-divider"></div>
+
                                 <div class="resume-card">
                                     <div class="resume-card-header">
                                         <img src="/IMG/logo-spvc.png"
@@ -1250,6 +1409,8 @@
                                     <p>วิทยาลัยอาชีวศึกษาสุพรรณบุรี</p>
                                     <div class="grade-badge">เกรดเฉลี่ย : 3.75</div>
                                 </div>
+
+                                <div class="experience-divider"></div>
 
                                 <div class="resume-card">
                                     <div class="resume-card-header">
@@ -1569,6 +1730,45 @@
     </div>
 
     <script>
+        // Mobile Menu Functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+
+        // Toggle mobile menu
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            // Change icon based on menu state
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1587,7 +1787,7 @@
         // Add active class to nav links on scroll
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-links a');
+            const navLinks = document.querySelectorAll('.nav-links a, .mobile-nav-links a');
 
             let current = '';
 
