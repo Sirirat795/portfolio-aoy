@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>พอร์ตโฟลิโอของฉัน</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📄</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@v10/font/simple-icons.min.css">
@@ -74,6 +75,13 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 1.5rem;
         }
 
         .nav-links {
@@ -256,7 +264,7 @@
         }
 
         .profile-name {
-            font-size: 1.6rem;
+            font-size: 2rem;
             margin-bottom: 5px;
             background: linear-gradient(90deg, rgb(var(--primary-rgb)), rgb(var(--secondary-rgb)));
             -webkit-background-clip: text;
@@ -328,26 +336,42 @@
             text-align: center;
         }
 
+        /* ปรับปรุงส่วน Resume Main ให้แต่ละส่วนแยกจากกัน */
         .resume-main {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .resume-section {
             background: var(--card-bg);
             border-radius: var(--border-radius);
             padding: 35px;
             box-shadow: var(--shadow);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
         }
 
-        .resume-section {
-            margin-bottom: 40px;
+        .resume-section:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow), 0 10px 25px rgba(var(--primary-rgb), 0.2);
         }
 
         .resume-section h2 {
             font-size: 1.3rem;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: rgb(var(--primary-rgb));
             border-bottom: 1px solid rgba(var(--primary-rgb), 0.2);
-            padding-bottom: 6px;
+            padding-bottom: 10px;
             font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .resume-section h2 i {
+            font-size: 1.1rem;
         }
 
         .resume-cards {
@@ -491,13 +515,11 @@
 
         .timeline-item:nth-child(odd) {
             padding-right: calc(40% + 90px);
-            /* เพิ่มระยะห่างทางซ้าย */
             text-align: right;
         }
 
         .timeline-item:nth-child(even) {
             padding-left: calc(40% + 90px);
-            /* เพิ่มระยะห่างทางขวา */
             text-align: left;
         }
 
@@ -565,8 +587,8 @@
         }
 
         .timeline-logo {
-            width: 100px;
-            height: 100px;
+            width: 150px;
+            height: 150px;
             border-radius: 16px;
             object-fit: contain;
             margin-right: 25px;
@@ -763,23 +785,77 @@
             font-weight: 600;
         }
 
-        .portfolio-content,
-        .experience-content {
+        /* เพิ่มสไตล์ใหม่สำหรับการจัดรูปแบบเนื้อหาที่อ่านง่ายขึ้น */
+        .experience-content, .portfolio-content {
             padding: 22px;
         }
 
-        .portfolio-content h3,
-        .experience-content h3 {
+        .experience-content h3, .portfolio-content h3 {
             font-size: 1.2rem;
             margin-bottom: 10px;
             font-weight: 500;
+            color: rgb(var(--primary-rgb));
         }
 
-        .portfolio-content p,
-        .experience-content p {
+        .experience-details, .portfolio-details {
+            margin-top: 15px;
+        }
+
+        .detail-row {
+            display: flex;
+            margin-bottom: 12px;
+            align-items: flex-start;
+        }
+
+        .detail-label {
+            min-width: 100px;
+            color: rgb(var(--primary-rgb));
+            font-weight: 500;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .detail-value {
             color: var(--text-light);
-            font-size: 0.9rem;
-            line-height: 1.5;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .detail-description {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(var(--primary-rgb), 0.05);
+            border-radius: 12px;
+            border-left: 3px solid rgba(var(--primary-rgb), 0.5);
+        }
+
+        .detail-description p {
+            margin-bottom: 8px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .detail-description p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-badge {
+            display: inline-block;
+            background: linear-gradient(90deg, rgba(var(--accent-rgb), 0.8), rgba(76, 217, 100, 0.8));
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-weight: 500;
+            margin-top: 8px;
+            font-size: 0.85rem;
+            box-shadow: 0 3px 10px rgba(var(--accent-rgb), 0.2);
+        }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(var(--primary-rgb), 0.3), transparent);
+            margin: 20px 0;
+            width: 100%;
         }
 
         /* Footer */
@@ -1157,16 +1233,25 @@
                 padding: 15px 20px;
                 font-size: 1rem;
             }
+
+            .detail-row {
+                flex-direction: column;
+            }
+
+            .detail-label {
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
         }
 
         @media (max-width: 480px) {
             .container {
-                padding: 0 15px;
+                padding: 15px;
             }
 
             .profile-sidebar,
             .resume-main {
-                padding: 20px;
+                padding: 8px;
             }
 
             .profile-img {
@@ -1175,7 +1260,7 @@
             }
 
             .profile-name {
-                font-size: 1.4rem;
+                font-size: 1rem;
             }
 
             .section-title {
@@ -1183,18 +1268,24 @@
             }
 
             .timeline-logo {
-                width: 80px;
-                height: 80px;
+                width: 100px;
+                height: 100px;
             }
 
             .timeline-info h3 {
-                font-size: 1.2rem;
+                font-size: 1rem;
             }
 
             .mobile-nav-links a {
                 padding: 12px 15px;
                 font-size: 0.9rem;
             }
+
+            .resume-section {
+                padding: 10px;
+            }
+
+            
         }
     </style>
 </head>
@@ -1210,7 +1301,10 @@
     <!-- Minimal Navigation -->
     <nav>
         <div class="container nav-container">
-            <div class="logo">พอร์ตโฟลิโอ</div>
+            <div class="logo">
+                <i class="fas fa-file-alt logo-icon"></i>
+                พอร์ตโฟลิโอ
+            </div>
             <ul class="nav-links">
                 <li><a href="#home" class="active"><i class="fas fa-file-alt"></i> Resume</a></li>
                 <li><a href="#education"><i class="fas fa-graduation-cap"></i> การศึกษา</a></li>
@@ -1244,7 +1338,6 @@
                     <div class="profile-sidebar">
                         <img src="/IMG/profile.png" alt="Profile Picture" class="profile-img">
                         <h1 class="profile-name">นางสาวศิริรัตน์ ทรงพระ</h1>
-                        <!--  <p class="profile-title">นักพัฒนาเว็บไซต์และแอปพลิเคชัน</p> -->
 
                         <div class="contact-info">
                             <div class="contact-item">
@@ -1259,10 +1352,6 @@
                                 <i class="fab fa-line"></i>
                                 <span>aoysirirat2545</span>
                             </div>
-                            <!-- <div class="contact-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>กรุงเทพมหานคร, ประเทศไทย</span>
-                            </div> -->
                         </div>
 
                         <div class="skills-sidebar">
@@ -1297,10 +1386,11 @@
                         </a>
                     </div>
 
-                    <!-- Main Resume Content -->
+                    <!-- Main Resume Content - แยกแต่ละส่วนออกจากกัน -->
                     <div class="resume-main">
+                        <!-- ส่วนเกี่ยวกับฉัน -->
                         <div class="resume-section">
-                            <h2>เกี่ยวกับฉัน</h2>
+                            <h2><i class="fas fa-user"></i> เกี่ยวกับฉัน</h2>
                             <p>เป็นคนรับผิดชอบ ซื่อสัตย์ ตรงต่อเวลา
                                 ใจเย็น มีวุฒิภาวะ สามารถแก้ไขปัญหาเฉพาะหน้าได้ดี
                                 มีมนุษยสัมพันธ์ดี ทำงานร่วมกับผู้อื่นได้อย่างราบรื่น
@@ -1308,8 +1398,9 @@
                             </p>
                         </div>
 
+                        <!-- ส่วนประสบการณ์การทำงาน -->
                         <div class="resume-section">
-                            <h2>ประสบการณ์การทำงาน</h2>
+                            <h2><i class="fas fa-briefcase"></i> ประสบการณ์การทำงาน</h2>
                             <div class="resume-cards">
 
                                 <div class="resume-card">
@@ -1376,8 +1467,9 @@
                             </div>
                         </div>
 
+                        <!-- ส่วนการศึกษา -->
                         <div class="resume-section">
-                            <h2>การศึกษา</h2>
+                            <h2><i class="fas fa-graduation-cap"></i> การศึกษา</h2>
                             <div class="resume-cards">
 
                                 <div class="resume-card">
@@ -1434,6 +1526,7 @@
         </div>
     </section>
 
+    <!-- ส่วนอื่นๆ ตามเดิม -->
     <!-- Education Section - Timeline Layout -->
     <section id="education">
         <div class="container">
@@ -1460,10 +1553,6 @@
                             <div class="education-detail-item">
                                 <span class="detail-value">สาขาวิชาเทคโนโลยีดิจิทัลเพื่อธุรกิจ</span>
                             </div>
-                            <!-- <div class="education-description">
-                                <p>วิชาเอก: การพัฒนาซอฟต์แวร์และระบบเว็บ</p>
-                                <p>โครงงานพิเศษ: ระบบจัดการคลังสินค้าอัจฉริยะด้วย AI</p>
-                            </div> -->
                             <div class="grade-badge">เกรดเฉลี่ย : 3.86</div> 
                         </div>
                     </div>
@@ -1485,13 +1574,8 @@
                                 <span class="detail-value">วิทยาลัยอาชีวศึกษาสุพรรณบุรี</span>
                             </div>
                             <div class="education-detail-item">
-                                <span class="detail-value">สาขาวิชาคอมพิวเตอร์โปรแกรมเมอร์</span>
+                                <span class="detail-value">สาขาคอมพิวเตอร์โปรแกรมเมอร์</span>
                             </div>
-                            <!-- <div class="education-description">
-                                <p>แผนกเทคโนโลยีสารสนเทศ</p>
-                                <p>กิจกรรม: ชมรมคอมพิวเตอร์, ชมรมคณิตศาสตร์</p>
-                                <p>โครงการ: การพัฒนาเกมเพื่อการศึกษา</p>
-                            </div> -->
                             <div class="grade-badge">เกรดเฉลี่ย : 3.75</div>
                         </div>
                     </div>
@@ -1515,11 +1599,6 @@
                             <div class="education-detail-item">
                                 <span class="detail-value">สายการเรียน ศิลป์ - ภาษา</span>
                             </div>
-                            <!-- <div class="education-description">
-                                <p>แผนกเทคโนโลยีสารสนเทศ</p>
-                                <p>กิจกรรม: ชมรมคอมพิวเตอร์, ชมรมคณิตศาสตร์</p>
-                                <p>โครงการ: การพัฒนาเกมเพื่อการศึกษา</p>
-                            </div> -->
                             <div class="grade-badge">เกรดเฉลี่ย : 3.59</div>
                         </div>
                     </div>
@@ -1535,7 +1614,6 @@
             <h2 class="section-title">ผลงาน</h2>
             <div class="portfolio-container">
                 <!-- Row 1 -->
-
                 <div class="portfolio-row">
                     <div class="portfolio-card"
                         data-images='["/IMG/pfm-tg-1.jpg", "/IMG/pfm-tg-2.jpg"]'>
@@ -1551,60 +1629,26 @@
                             </div>
                         </div>
                         <div class="portfolio-content">
-                            <h3>2567 | การแข่งขัน พ.จ.น.ก. สัมพันธ์ ครั้งที่ 45 "ตาลโตนดเกมส์"</h3>
-                            <p>เข้าร่วมการแข่งขันทักษะวิชาการ Microsoft Word</p>
-                        </div>
-                    </div>
-
-                    <!-- <div class="portfolio-card" onclick="openModal('certificate1')">
-                        <div class="certificate-badge">
-                            <i class="fas fa-award"></i> ใบรับรอง
-                        </div>
-                        <div class="portfolio-img-container" onclick="openImageViewer(this)">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
-                                alt="Project 2" class="portfolio-img">
-                        </div>
-                        <div class="portfolio-content">
-                            <h3>แอปพลิเคชันบันทึกการเงินส่วนตัว</h3>
-                            <p>แอปพลิเคชันมือถือสำหรับบันทึกรายรับรายจ่าย พัฒนาด้วย Flutter</p>
-                        </div>
-                    </div> -->
-
-                </div>
-
-                <!-- Row 2 -->
-                <!-- <div class="portfolio-row">
-
-                    <div class="portfolio-card"
-                        data-images='["https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1715&q=80", "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80", "https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1764&q=80"]'>
-                        <div class="portfolio-img-container" onclick="openImageViewer(this)">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1715&q=80"
-                                alt="Project 3" class="portfolio-img">
-                            <div class="portfolio-nav">
-                                <button class="nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
-                                <button class="nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                            <h3>การแข่งขันทักษะวิชาการ Microsoft Word</h3>
+                            <div class="portfolio-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">ปีการศึกษา</span>
+                                    <span class="detail-value">2567</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">กิจกรรม</span>
+                                    <span class="detail-value">พ.จ.น.ก. สัมพันธ์ ครั้งที่ 45 "ตาลโตนดเกมส์"</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">ผลงาน</span>
+                                    <span class="detail-value">ได้รับรางวัลเหรียญทอง</span>
+                                </div>
+                                <div class="detail-description">
+                                    <p>เข้าร่วมการแข่งขันทักษะวิชาการ Microsoft Word ในงานกีฬาสัมพันธ์ระดับมหาวิทยาลัย</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="portfolio-content">
-                            <h3>เว็บไซต์บริษัท XYZ</h3>
-                            <p>ออกแบบและพัฒนาเว็บไซต์บริษัท XYZ ด้วยเทคโนโลยีสมัยใหม่และดีไซน์ที่ทันสมัย</p>
-                        </div>
                     </div>
-
-                    <div class="portfolio-card" onclick="openModal('certificate2')">
-                        <div class="certificate-badge">
-                            <i class="fas fa-award"></i> ใบรับรอง
-                        </div>
-                        <div class="portfolio-img-container" onclick="openImageViewer(this)">
-                            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1764&q=80"
-                                alt="Project 4" class="portfolio-img">
-                        </div>
-                        <div class="portfolio-content">
-                            <h3>ระบบจัดการคลังสินค้า</h3>
-                            <p>ระบบจัดการคลังสินค้าอัจฉริยะ พัฒนาด้วย Python และ Django</p>
-                        </div>
-                    </div> -->
-
                 </div>
             </div>
         </div>
@@ -1628,11 +1672,27 @@
                             </div>
                         </div>
                         <div class="experience-content">
-                            <h3>ฝึกงาน 2568 | บริษัท โทรคมนาคมแห่งชาติ จำกัด (มหาชน) สาขากาญจนบุรี </h3>
-                            <p>เจ้าหน้าที่ฝ่ายขายและวิศวกรรมบริการ</p>
-                            <p>ระยะเวลา : 16 มิ.ย. 68 - 17 ต.ค. 68 </p>
-                            <p>จัดทำและบันทึกข้อมูลลูกค้า รายได้ต่อเดือน/ปี ด้วย Excel / word
-                                ออกแบบ banner เช่น Cyber security , smart school</p>
+                            <h3>ฝึกงาน 2568</h3>
+                            <div class="experience-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">บริษัท</span>
+                                    <span class="detail-value">บริษัท โทรคมนาคมแห่งชาติ จำกัด (มหาชน) สาขากาญจนบุรี</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">ตำแหน่ง</span>
+                                    <span class="detail-value">เจ้าหน้าที่ฝ่ายขายและวิศวกรรมบริการ</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">ระยะเวลา</span>
+                                    <span class="detail-value">16 มิ.ย. 68 - 17 ต.ค. 68</span>
+                                </div>
+                                <div class="section-divider"></div>
+                                <div class="detail-description">
+                                    <p><strong>หน้าที่รับผิดชอบ:</strong></p>
+                                    <p>• จัดทำและบันทึกข้อมูลลูกค้า รายได้ต่อเดือน/ปี ด้วย Excel / Word</p>
+                                    <p>• ออกแบบ Banner เช่น Cyber security, Smart School</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -1647,18 +1707,33 @@
                             </div>
                         </div>
                         <div class="experience-content">
-                            <h3>Part-time 2567 | คณะวิทยาการจัดการ มหาวิทยาลัยราชภัฏกาญจนบุรี</h3>
-                            <p>นักศึกษาทำงานช่วงปิดเทอม</p>
-                            <p>ระยะเวลา : พ.ย. 67 - มี.ค. 68 ( 1 เทอม)</p>
-                            <p>รับ-ส่งเอกสารภายในมหาวิทยาลัย.
-                                จัดห้องประชุมเมื่อมีการประชุมต่างๆภายในตึกคณะ</p>
+                            <h3>Part-time 2567</h3>
+                            <div class="experience-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">หน่วยงาน</span>
+                                    <span class="detail-value">คณะวิทยาการจัดการ มหาวิทยาลัยราชภัฏกาญจนบุรี</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">ตำแหน่ง</span>
+                                    <span class="detail-value">นักศึกษาทำงานช่วงปิดเทอม</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">ระยะเวลา</span>
+                                    <span class="detail-value">พ.ย. 67 - มี.ค. 68 (1 เทอม)</span>
+                                </div>
+                                <div class="section-divider"></div>
+                                <div class="detail-description">
+                                    <p><strong>หน้าที่รับผิดชอบ:</strong></p>
+                                    <p>• รับ-ส่งเอกสารภายในมหาวิทยาลัย</p>
+                                    <p>• จัดห้องประชุมเมื่อมีการประชุมต่างๆ ภายในตึกคณะ</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Row 2 -->
                 <div class="experience-row">
-
                     <div class="experience-card"
                         data-images='["/IMG/gt-hz.jpg", "/IMG/gt-train.jpg"]'>
                         <div class="experience-img-container" onclick="openImageViewer(this)">
@@ -1670,30 +1745,33 @@
                             </div>
                         </div>
                         <div class="experience-content">
-                            <h3>ฝึกงาน 2565 | บริษัท จีเนียส-ทรี จำกัด</h3>
-                            <p>แผนกคอมพิวเตอร์</p>
-                            <p>ระยะเวลา : 17 พ.ค 65 - 16 ก.ย.65</p>
-                            <p>ใช้ Java พัฒนาโปรแกรมด้วย NetBeans, VS Code และ BlueJ
-                                ติดตั้งและอัปเดต Apache NetBeans ผ่าน Command Line</p>
+                            <h3>ฝึกงาน 2565</h3>
+                            <div class="experience-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">บริษัท</span>
+                                    <span class="detail-value">บริษัท จีเนียส-ทรี จำกัด</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">ตำแหน่ง</span>
+                                    <span class="detail-value">แผนกคอมพิวเตอร์</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">ระยะเวลา</span>
+                                    <span class="detail-value">17 พ.ค 65 - 16 ก.ย.65</span>
+                                </div>
+                                <div class="section-divider"></div>
+                                <div class="detail-description">
+                                    <p><strong>หน้าที่รับผิดชอบ:</strong></p>
+                                    <p>• ใช้ Java พัฒนาโปรแกรมด้วย NetBeans, VS Code และ BlueJ</p>
+                                    <p>• ติดตั้งและอัปเดต Apache NetBeans ผ่าน Command Line</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <!-- <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-            </div>
-            <p>© 2023 ณัฐพล ใจดี. สงวนลิขสิทธิ์.</p>
-        </div>
-    </footer> -->
 
     <!-- Image Viewer -->
     <div class="image-viewer" id="imageViewer" onclick="closeImageViewer(event)">
