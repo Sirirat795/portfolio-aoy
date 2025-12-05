@@ -332,7 +332,7 @@
         }
 
         .profile-img:hover {
-            transform: scale(1.05) rotate(5deg);
+            transform: scale(1.05);
             box-shadow: 0 15px 40px rgba(var(--primary-rgb), 0.4);
         }
 
@@ -493,20 +493,22 @@
             margin-bottom: 12px;
         }
 
+        /* ปรับขนาดโลโก้ให้ใหญ่ขึ้นใน Resume Section */
         .resume-logo {
-            width: 60px;
-            height: 60px;
+            width: 80px; /* เพิ่มจาก 60px เป็น 80px */
+            height: 80px; /* เพิ่มจาก 60px เป็น 80px */
             border-radius: 12px;
             object-fit: contain;
             margin-right: 15px;
             border: 1px solid rgba(var(--primary-rgb), 0.4);
             background-color: white;
-            padding: 5px;
-            transition: transform 0.3s ease;
+            padding: 8px; /* เพิ่ม padding เล็กน้อย */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .resume-card:hover .resume-logo {
             transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.3);
         }
 
         .resume-card-info h3 {
@@ -729,9 +731,10 @@
             margin-bottom: 20px;
         }
 
+        /* ปรับขนาดโลโก้ให้ใหญ่ขึ้นใน Timeline Section */
         .timeline-logo {
-            width: 150px;
-            height: 150px;
+            width: 180px; /* เพิ่มจาก 150px เป็น 180px */
+            height: 180px; /* เพิ่มจาก 150px เป็น 180px */
             border-radius: 16px;
             object-fit: contain;
             margin-right: 25px;
@@ -739,12 +742,13 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             flex-shrink: 0;
             background-color: white;
-            padding: 10px;
-            transition: transform 0.5s ease;
+            padding: 12px; /* เพิ่ม padding */
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
         }
 
         .timeline-content:hover .timeline-logo {
-            transform: rotate(5deg);
+            transform: scale(1.05); /* ลดจากการ rotate เป็น scale */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
         .timeline-info {
@@ -1387,6 +1391,17 @@
                 left: 0;
                 padding: 25px;
             }
+
+            /* ปรับขนาดโลโก้สำหรับ tablet */
+            .resume-logo {
+                width: 70px;
+                height: 70px;
+            }
+
+            .timeline-logo {
+                width: 150px;
+                height: 150px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1427,6 +1442,8 @@
             .timeline-logo {
                 margin-right: 0;
                 margin-bottom: 15px;
+                width: 130px;
+                height: 130px;
             }
 
             .timeline-info h3 {
@@ -1472,6 +1489,12 @@
                 margin-right: 0;
                 margin-bottom: 5px;
             }
+
+            /* ปรับขนาดโลโก้สำหรับ mobile */
+            .resume-logo {
+                width: 60px;
+                height: 60px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1513,6 +1536,12 @@
 
             .resume-section {
                 padding: 10px;
+            }
+
+            .resume-logo {
+                width: 50px;
+                height: 50px;
+                padding: 5px;
             }
         }
     </style>
